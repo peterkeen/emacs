@@ -5,16 +5,12 @@
                emacsd-path
                (concat emacsd-path "/vendor")) load-path))
 
-(setq custom-file (concat emacsd-path "/customization.el"))
-(load custom-file)
-
 (menu-bar-mode)
 (server-start)
 (display-time)
 
 (require 'pcomplete)
 (require 'vc-git)
-(require 'parenface)
 
 (require 'pak-macros)
 (require 'pak-keybindings)
@@ -22,6 +18,7 @@
 (require 'pak-pager)
 (require 'pak-mousewheel)
 (require 'pak-misc)
+(require 'pak-aliases)
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
