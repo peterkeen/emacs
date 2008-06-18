@@ -5,6 +5,9 @@
                emacsd-path
                (concat emacsd-path "/vendor")) load-path))
 
+(setq custom-file (concat emacsd-path "/customization.el"))
+(load custom-file 'noerror)
+
 (menu-bar-mode)
 (server-start)
 (display-time)
@@ -57,3 +60,17 @@
 
 (if (file-exists-p "~/.emacs.local")
     (load "~/.emacs.local"))
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(cperl-continued-statement-offset 0)
+ '(cperl-indent-level 4)
+ '(scroll-margin 2))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
