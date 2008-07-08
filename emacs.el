@@ -8,7 +8,7 @@
 (setq custom-file (concat emacsd-path "/customization.el"))
 (load custom-file 'noerror)
 
-(menu-bar-mode)
+(menu-bar-mode -1)
 (server-start)
 (display-time)
 
@@ -22,8 +22,7 @@
 (require 'pak-mousewheel)
 (require 'pak-misc)
 (require 'pak-aliases)
-
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(require 'pak-git)
 
 ;; disambiguous buffer names
 (require 'uniquify)
@@ -33,19 +32,13 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 
-;; git stuff
-
-(when (featurep 'vc-git) (add-to-list 'vc-handled-backends 'git))
-(require 'git)
-(autoload 'git-blame-mode "git-blame"
-          "Minor mode for incremental blame for Git." t)
-
 (require 'ibuffer)
 (setq ibuffer-enable t)
 (setq ibuffer-shrink-to-minimum-size t)
 (setq ibuffer-expert t) 
 
-(load-library "vc-hooks")
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 (add-to-list 'default-frame-alist '(foreground-color . "LightGrey"))
 (add-to-list 'default-frame-alist '(background-color . "black"))
@@ -60,17 +53,3 @@
 
 (if (file-exists-p "~/.emacs.local")
     (load "~/.emacs.local"))
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(cperl-continued-statement-offset 0)
- '(cperl-indent-level 4)
- '(scroll-margin 2))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )

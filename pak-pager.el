@@ -1,5 +1,7 @@
 ;; pager
 
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 (defun ansi-color-apply-on-buffer ()
   "Apply the ansi-color filter to the current buffer"
   (interactive)
