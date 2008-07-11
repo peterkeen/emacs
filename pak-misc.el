@@ -41,6 +41,13 @@
       (delete-char 1)
       (insert "X"))))
 
+(defun insert-todo-item ()
+  "Insert a todo at point"
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent)
+  (insert "[ ] "))
+
 (defun sh1 ()
   (interactive)
   (my-shell 1))

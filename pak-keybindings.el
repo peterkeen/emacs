@@ -38,5 +38,6 @@
 
 (global-unset-key (kbd "C-c TAB"))
 (global-set-key (kbd "C-c TAB") 'toggle-todo-item)
+(global-set-key (kbd "C-c C-j") 'insert-todo-item)
 
 (provide 'pak-keybindings)

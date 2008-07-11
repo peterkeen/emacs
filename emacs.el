@@ -14,7 +14,6 @@
 
 (require 'pcomplete)
 (require 'vc-git)
-
 (require 'pak-macros)
 (require 'pak-keybindings)
 (require 'pak-filemodes)
