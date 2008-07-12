@@ -11,6 +11,7 @@
 (menu-bar-mode -1)
 (server-start)
 (display-time)
+(tool-bar-mode -1)
 
 (require 'pcomplete)
 (require 'vc-git)
