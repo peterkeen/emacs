@@ -1,3 +1,5 @@
+(setq start-time (current-time))
+
 (setq emacsd-path "~/.emacs.d")
 
 (setq load-path
@@ -23,6 +25,7 @@
 (require 'pak-misc)
 (require 'pak-aliases)
 (require 'pak-git)
+(require 'emacs-lock)
 
 ;; disambiguous buffer names
 (require 'uniquify)
@@ -58,3 +61,4 @@
 
 (if (file-exists-p "~/.emacs.local")
     (load "~/.emacs.local"))
+
