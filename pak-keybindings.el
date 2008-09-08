@@ -8,6 +8,8 @@
 
 (global-unset-key (kbd "C-z"))
 (global-set-key (kbd "C-z z") 'my-shell)
+(global-set-key (kbd "C-z C-r") 'rename-buffer)
+  
 (global-set-key (kbd "C-z 1") '(lambda () (interactive) (my-shell 1)))
 (global-set-key (kbd "C-z 2") '(lambda () (interactive) (my-shell 2)))
 (global-set-key (kbd "C-z 3") '(lambda () (interactive) (my-shell 3)))
@@ -21,6 +23,8 @@
 (global-set-key "\M-K" '(lambda () (interactive) (kill-buffer (current-buffer))))
 (global-set-key (kbd "C-x C-p") 'ido-find-file-in-tag-files)
 
+(global-set-key (kbd "<f5>") 'insert-game-rant)
+
 (global-set-key [f12] 'hs-toggle-hiding)
 
 (global-set-key "\C-c l" 'open-tramp-path-on-line)
@@ -33,10 +37,8 @@
 (global-set-key (kbd "C-x C-g") 'keyboard-quit)
 (global-set-key (kbd "C-c C-g") 'keyboard-quit)
 
-(global-unset-key (kbd "C-c p"))
-(global-set-key (kbd "C-c p") 'perl-on-region)
+(global-set-key (kbd "C-c C-p") 'perl-on-region)
 
-(global-unset-key (kbd "C-c TAB"))
 (global-set-key (kbd "C-c TAB") 'toggle-todo-item)
 (global-set-key (kbd "C-c C-j") 'insert-todo-item)
 (global-set-key (kbd "C-c l") 'toggle-emacs-lock)

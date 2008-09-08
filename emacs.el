@@ -26,6 +26,7 @@
 (require 'pak-aliases)
 (require 'pak-git)
 (require 'emacs-lock)
+(require 'htmlize)
 
 ;; disambiguous buffer names
 (require 'uniquify)
@@ -45,8 +46,6 @@
 
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-
-
 
 (add-to-list 'default-frame-alist '(foreground-color . "LightGrey"))
 (add-to-list 'default-frame-alist '(background-color . "black"))

@@ -48,6 +48,27 @@
   (newline-and-indent)
   (insert "[ ] "))
 
+(defun shell-command-as-string (command)
+  "Call a command and return output as a string."
+  (with-temp-buffer
+    (shell-command command (current-buffer))
+    (buffer-string)))
+
+(defun game-expand (expando)
+  "Expand a game.pl string and return it as a string."
+  (interactive "MExpando: ")
+  (chomp (shell-command-as-string (concat "~/work/game/game.pl --test-string='" expando "'"))))
+
+(defun insert-game-expand (expando)
+  "Expand a game.pl string and insert it at point."
+  (interactive "MExpando: ")
+  (insert (game-expand expando)))
+
+(defun insert-game-rant ()
+  "Insert a random game.pl rant at point."
+  (interactive)
+  (insert (game-expand "<Rant>")))
+
 (defun sh1 ()
   (interactive)
   (my-shell 1))
