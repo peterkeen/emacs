@@ -26,7 +26,9 @@
 (require 'pak-aliases)
 (require 'pak-git)
 (require 'emacs-lock)
+(require 'game)
 (require 'htmlize)
+(require 'pak-itunes)
 
 ;; disambiguous buffer names
 (require 'uniquify)

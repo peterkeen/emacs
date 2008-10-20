@@ -43,4 +43,8 @@
 (global-set-key (kbd "C-c C-j") 'insert-todo-item)
 (global-set-key (kbd "C-c l") 'toggle-emacs-lock)
 
+(global-set-key (kbd "C-c P") 'itunes-previous)
+(global-set-key (kbd "C-c n") 'itunes-next)
+(global-set-key (kbd "C-c p") 'itunes-play-pause)
+
 (provide 'pak-keybindings)
