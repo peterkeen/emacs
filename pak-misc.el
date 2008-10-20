@@ -11,16 +11,16 @@
                          (tags-table-files)
                          nil t))))
 
-(defun interactive-shell-command-on-region(command)
-  "Replace the selected region with the results from command"
+(defun replace-region-with (command)
+  "Replace the selected region with the results from COMMAND"
   (interactive "MCommand: ")
   (save-excursion
-    (shell-command-on-region (region-beginning) (region-end) command nil t)))
+    (shell-command-on-region (region-beginning) (region-end) command nil t "*Shell Stderr*" t)))
 
 (defun perl-on-region(perl-expression)
-  "Run the given expression as 'perl -pe perl-expression'"
+  "Run the given expression as 'perl -pe PERL-EXPRESSION'"
   (interactive "MPerl expression: ")
-  (interactive-shell-command-on-region (concat "perl -pe '" perl-expression "'")))
+  (replace-region-with (concat "perl -pe " (shell-quote-argument perl-expression ))))
 
 (defun pwd-of-buffer(buffer)
   (interactive "MBuffer: ")
