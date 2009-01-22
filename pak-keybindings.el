@@ -46,5 +46,8 @@
 (global-set-key (kbd "C-c P") 'itunes-previous)
 (global-set-key (kbd "C-c n") 'itunes-next)
 (global-set-key (kbd "C-c p") 'itunes-play-pause)
+(global-set-key (kbd "C-c /") 'col-highlight-flash)
+
+(global-set-key (kbd "C-c k") 'browse-kill-ring)
 
 (provide 'pak-keybindings)

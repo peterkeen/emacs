@@ -11,7 +11,6 @@
 (load custom-file 'noerror)
 
 (menu-bar-mode -1)
-(server-start)
 (display-time)
 (tool-bar-mode -1)
 
@@ -29,6 +28,16 @@
 (require 'game)
 (require 'htmlize)
 (require 'pak-itunes)
+(require 'vline)
+(require 'col-highlight)
+(require 'browse-kill-ring)
+
+
+;(setq(setq server-host
+;      (chomp (shell-command-as-string "hostname")))
+;(setq server-host "edev4.rtkinternal")
+;(setq server-use-tcp t)
+(server-start)
 
 ;; disambiguous buffer names
 (require 'uniquify)

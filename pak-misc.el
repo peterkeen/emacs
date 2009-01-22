@@ -20,7 +20,9 @@
 (defun perl-on-region(perl-expression)
   "Run the given expression as 'perl -pe PERL-EXPRESSION'"
   (interactive "MPerl expression: ")
-  (replace-region-with (concat "perl -pe " (shell-quote-argument perl-expression ))))
+  (replace-region-with
+   (concat "perl -MAppropriateLibrary -MRTK::Util::Misc=:ALL -MAliased=RTK::Util::DateTime -pe "
+           (shell-quote-argument perl-expression))))
 
 (defun pwd-of-buffer(buffer)
   (interactive "MBuffer: ")
@@ -84,17 +86,6 @@
               (> (length s) (string-match "\\( \\|\f\\|\t\\|\n\\)$" s)))
         (setq s (replace-match "" t nil s))))
     s))
-
-(defun current-hostname ()
-  (interactive)
-  (with-temp-buffer
-    (shell-command "hostname" (current-buffer))
-    (chomp (buffer-string))))
-
-(defun load-host-specific-configuration (hostname)
-  (let ((host-specific-file (concat emacsd-path "/hosts/" hostname ".el")))
-    (if (file-exists-p host-specific-file)
-        (load host-specific-file))))
 
 (require 'cl)
 
