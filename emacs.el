@@ -31,7 +31,11 @@
 (require 'vline)
 (require 'col-highlight)
 (require 'browse-kill-ring)
+(require 'smex)
 
+(setq sepia-perl5lib (list (expand-file-name "/dp/usr/pak/play/sepia/lib")))
+(defalias 'perl-mode 'sepia-mode)
+(require 'sepia)
 
 ;(setq(setq server-host
 ;      (chomp (shell-command-as-string "hostname")))
@@ -72,3 +76,5 @@
 (if (file-exists-p "~/.emacs.local")
     (load "~/.emacs.local"))
 
+(smex-initialize)
+(smex-auto-update)

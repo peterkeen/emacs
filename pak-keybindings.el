@@ -29,7 +29,6 @@
 
 (global-set-key "\C-c l" 'open-tramp-path-on-line)
 
-(global-set-key (kbd "C-c r") 'run-remote-command)
 (global-set-key (kbd "C-c g") 'google-search)
 
 (global-set-key (kbd "C-c C-o") 'interactive-shell-command-on-region)
@@ -50,4 +49,14 @@
 
 (global-set-key (kbd "C-c k") 'browse-kill-ring)
 
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c M-x") 'smex-update-and-run)
+;; This is the old M-x
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+
 (provide 'pak-keybindings)
+
+
+
