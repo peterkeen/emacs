@@ -11,18 +11,16 @@
                          (tags-table-files)
                          nil t))))
 
-(defun replace-region-with (command)
-  "Replace the selected region with the results from COMMAND"
+(defun interactive-shell-command-on-region(command)
+  "Replace the selected region with the results from command"
   (interactive "MCommand: ")
   (save-excursion
-    (shell-command-on-region (region-beginning) (region-end) command nil t "*Shell Stderr*" t)))
+    (shell-command-on-region (region-beginning) (region-end) command nil t)))
 
 (defun perl-on-region(perl-expression)
-  "Run the given expression as 'perl -pe PERL-EXPRESSION'"
+  "Run the given expression as 'perl -pe perl-expression'"
   (interactive "MPerl expression: ")
-  (replace-region-with
-   (concat "perl -MAppropriateLibrary -MRTK::Util::Misc=:ALL -MAliased=RTK::Util::DateTime -pe "
-           (shell-quote-argument perl-expression))))
+  (interactive-shell-command-on-region (concat "perl -pe '" perl-expression "'")))
 
 (defun pwd-of-buffer(buffer)
   (interactive "MBuffer: ")
@@ -49,12 +47,6 @@
   (move-end-of-line nil)
   (newline-and-indent)
   (insert "[ ] "))
-
-(defun shell-command-as-string (command)
-  "Call a command and return output as a string."
-  (with-temp-buffer
-    (shell-command command (current-buffer))
-    (buffer-string)))
 
 (defun sh1 ()
   (interactive)
@@ -86,6 +78,17 @@
               (> (length s) (string-match "\\( \\|\f\\|\t\\|\n\\)$" s)))
         (setq s (replace-match "" t nil s))))
     s))
+
+(defun current-hostname ()
+  (interactive)
+  (with-temp-buffer
+    (shell-command "hostname" (current-buffer))
+    (chomp (buffer-string))))
+
+(defun load-host-specific-configuration (hostname)
+  (let ((host-specific-file (concat emacsd-path "/hosts/" hostname ".el")))
+    (if (file-exists-p host-specific-file)
+        (load host-specific-file))))
 
 (require 'cl)
 
