@@ -24,7 +24,6 @@
 (require 'pak-misc)
 (require 'pak-aliases)
 (require 'pak-git)
-(require 'pak-irc)
 (require 'emacs-lock)
 (require 'game)
 (require 'htmlize)
@@ -37,7 +36,9 @@
 (defalias 'perl-mode 'sepia-mode)
 (require 'sepia)
 
-(server-start)
+(when (and (functionp 'server-running-p)
+           (not (server-running-p)))
+  (server-start))
 
 ;; disambiguous buffer names
 (require 'uniquify)

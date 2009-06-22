@@ -11,7 +11,7 @@
                          (tags-table-files)
                          nil t))))
 
-(defun interactive-shell-command-on-region(command)
+(defun replace-region-with(command)
   "Replace the selected region with the results from command"
   (interactive "MCommand: ")
   (save-excursion
@@ -20,7 +20,7 @@
 (defun perl-on-region(perl-expression)
   "Run the given expression as 'perl -pe perl-expression'"
   (interactive "MPerl expression: ")
-  (interactive-shell-command-on-region (concat "perl -pe '" perl-expression "'")))
+  (replace-region-with (concat "perl -pe '" perl-expression "'")))
 
 (defun pwd-of-buffer(buffer)
   (interactive "MBuffer: ")
@@ -107,5 +107,7 @@
          (mins  (progn (decf total (* hours 3600))  (floor (/ total 60))))
          (secs  (progn (decf total (* mins  60))    (floor total))))
     (message "%d days, %d hours, %d minutes, %d seconds" days hours mins secs)))
+
+(defalias 'unfuck-this-buffer 'toggle-input-method)
 
 (provide 'pak-misc)

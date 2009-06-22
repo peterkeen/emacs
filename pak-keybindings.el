@@ -41,4 +41,5 @@
 (global-set-key (kbd "C-c C-j") 'insert-todo-item)
 (global-set-key (kbd "C-c l") 'toggle-emacs-lock)
 
+
 (provide 'pak-keybindings)
