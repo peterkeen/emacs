@@ -31,6 +31,7 @@
 (require 'vline)
 (require 'col-highlight)
 (require 'browse-kill-ring)
+(require 'protobuf-mode)
 
 (setq sepia-perl5lib (list (expand-file-name "/dp/usr/pak/play/sepia/lib")))
 (defalias 'perl-mode 'sepia-mode)
