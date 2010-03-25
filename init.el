@@ -33,10 +33,6 @@
 (require 'browse-kill-ring)
 (require 'protobuf-mode)
 
-(setq sepia-perl5lib (list (expand-file-name "/dp/usr/pak/play/sepia/lib")))
-(defalias 'perl-mode 'sepia-mode)
-(require 'sepia)
-
 (when (and (functionp 'server-running-p)
            (not (server-running-p)))
   (server-start))
@@ -71,6 +67,8 @@
 
 (setq cperl-hairy nil)
 
+(with-current-buffer "*scratch*"
+  (setq emacs-lock-from-exiting 1))
+
 (if (file-exists-p "~/.emacs.local")
     (load "~/.emacs.local"))
-

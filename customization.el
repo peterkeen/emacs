@@ -5,8 +5,9 @@
   ;; If there is more than one, they won't work right.
  '(aquamacs-additional-fontsets nil t)
  '(aquamacs-customization-version-id 100 t)
- '(c-basic-offset 4)
+ '(c-basic-offset 2)
  '(case-fold-search t)
+ '(column-number-mode t)
  '(cperl-auto-newline nil)
  '(cperl-brace-imaginary-offset 0)
  '(cperl-brace-offset 0)

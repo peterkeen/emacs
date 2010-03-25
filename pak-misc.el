@@ -41,12 +41,12 @@
       (delete-char 1)
       (insert "X"))))
 
-(defun insert-todo-item ()
+(defun insert-todo-item (&optional text)
   "Insert a todo item on a new line below point with the current indent level."
   (interactive)
   (move-end-of-line nil)
   (newline-and-indent)
-  (insert "[ ] "))
+  (insert (concat "[ ] " (or text ""))))
 
 (defun sh1 ()
   (interactive)
@@ -109,5 +109,41 @@
     (message "%d days, %d hours, %d minutes, %d seconds" days hours mins secs)))
 
 (defalias 'unfuck-this-buffer 'toggle-input-method)
+
+(defun short ()
+  "Print the subs in the current buffer"
+  (interactive)
+  (occur "^sub "))
+
+(setq journal-file "~/notes/journal.org")
+
+(defun start-journal-entry ()
+  "Start a new journal entry."
+  (interactive)
+  (find-file-other-window journal-file)
+  (goto-char (point-min))
+  (org-insert-heading)
+  (org-insert-time-stamp (current-time) t)
+  (org-narrow-to-subtree)
+  (open-line 2)
+  (insert " "))
+
+(setq todo-file "/dp/usr/pak/todo")
+(defun insert-dated-todo-entry ()
+  "Insert a dated todo entry"
+  (interactive)
+  (if (not (string-equal (buffer-file-name) todo-file))
+      (find-file-other-window todo-file))
+  (goto-char (point-max))
+  (insert-todo-item (concat
+                     (org-insert-time-stamp (current-time) t)
+                     " ")))
+
+(global-set-key (kbd "C-c j") 'add-todo-entry)
+
+(defun start-ssh-agent (ssh-agent-socket-path)
+  (interactive)
+  (start-process "ssh-agent" "*ssh-agent*" "ssh-agent" "-a" ssh-agent-socket-path)
+  (setenv "SSH_AUTH_SOCK" "/dp/usr/pak/.ssh/.emacs-ssh-agent"))
 
 (provide 'pak-misc)
