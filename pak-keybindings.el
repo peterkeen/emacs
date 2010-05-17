@@ -26,7 +26,7 @@
 (global-set-key "\C-c l" 'open-tramp-path-on-line)
 
 (global-set-key (kbd "C-c r") 'run-remote-command)
-(global-set-key (kbd "C-c g") 'google-search)
+(global-set-key (kbd "C-c g") 'magit-status)
 
 (global-set-key (kbd "C-c C-o") 'interactive-shell-command-on-region)
 (global-set-key (kbd "C-c C-u") 'normal-mode)
@@ -40,6 +40,8 @@
 (global-set-key (kbd "C-c TAB") 'toggle-todo-item)
 (global-set-key (kbd "C-c C-j") 'insert-todo-item)
 (global-set-key (kbd "C-c l") 'toggle-emacs-lock)
+
+
 
 
 (provide 'pak-keybindings)

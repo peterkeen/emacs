@@ -5,8 +5,10 @@
   ;; If there is more than one, they won't work right.
  '(aquamacs-additional-fontsets nil t)
  '(aquamacs-customization-version-id 100 t)
- '(c-basic-offset 4)
+ '(browse-url-browser-function (quote open-remote-browser))
+ '(c-basic-offset 2)
  '(case-fold-search t)
+ '(column-number-mode t)
  '(cperl-auto-newline nil)
  '(cperl-brace-imaginary-offset 0)
  '(cperl-brace-offset 0)
@@ -44,10 +46,13 @@
  '(scroll-bar-mode nil)
  '(scroll-conservatively 100)
  '(scroll-margin 2)
+ '(server-host "lindev2")
+ '(server-use-tcp nil)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(transient-mark-mode t)
- '(vc-diff-switches (quote ("-U500"))))
+ '(vc-diff-switches (quote ("-U500")))
+ '(vc-follow-symlinks t))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.

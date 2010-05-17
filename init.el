@@ -10,6 +10,16 @@
 (setq custom-file (concat emacsd-path "/customization.el"))
 (load custom-file 'noerror)
 
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
 (menu-bar-mode -1)
 (display-time)
 (tool-bar-mode -1)
@@ -32,10 +42,7 @@
 (require 'col-highlight)
 (require 'browse-kill-ring)
 (require 'protobuf-mode)
-
-(setq sepia-perl5lib (list (expand-file-name "/dp/usr/pak/play/sepia/lib")))
-(defalias 'perl-mode 'sepia-mode)
-(require 'sepia)
+(require 'magit)
 
 (when (and (functionp 'server-running-p)
            (not (server-running-p)))
@@ -71,6 +78,10 @@
 
 (setq cperl-hairy nil)
 
+(with-current-buffer "*scratch*"
+  (setq emacs-lock-from-exiting 1))
+
 (if (file-exists-p "~/.emacs.local")
     (load "~/.emacs.local"))
+
 
