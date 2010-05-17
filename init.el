@@ -83,5 +83,8 @@
 
 (if (file-exists-p "~/.emacs.local")
     (load "~/.emacs.local"))
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 7ddc0c4f182b813ba620a0cf939324a23839d833
